@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/PlayerMovement.gd" type="Script" id=2]
+[ext_resource path="res://assets/playerShip1_green.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 22.0
+height = 30.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 22.5, 33.5 )
+
+[node name="PlayerNode" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Player"]
+texture = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+shape = SubResource( 2 )

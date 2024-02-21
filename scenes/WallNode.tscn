@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Walls.gd" type="Script" id=1]
+[ext_resource path="res://assets/black.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18, 161 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -18, -360, 18, -360, 18, -38, -18, -38 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 100 )
+
+[node name="WallNode" type="Node2D"]
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="UpperWallSprite" type="Sprite" parent="Walls"]
+position = Vector2( 1.33514e-05, -261.013 )
+rotation = 3.14159
+scale = Vector2( 0.16, 1.431 )
+texture = ExtResource( 2 )
+
+[node name="UpperWallColl" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 1.33514e-05, -260.806 )
+shape = SubResource( 1 )
+
+[node name="UpperLightOccluder2D" type="LightOccluder2D" parent="Walls"]
+position = Vector2( 1.33514e-05, -61.8062 )
+occluder = SubResource( 2 )
+
+[node name="LowerWallSprite" type="Sprite" parent="Walls"]
+position = Vector2( 1.90735e-06, 261 )
+scale = Vector2( 0.16, 1.43111 )
+texture = ExtResource( 2 )
+
+[node name="LowerWallColl2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 0, 261 )
+shape = SubResource( 1 )
+
+[node name="LowerLightOccluder2D2" type="LightOccluder2D" parent="Walls"]
+position = Vector2( -1, 460 )
+occluder = SubResource( 2 )
+
+[node name="PointArea" type="Area2D" parent="Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/PointArea"]
+shape = SubResource( 3 )
