@@ -21,6 +21,7 @@ position = Vector2( 70, 0 )
 
 [node name="BlueShip" parent="." instance=ExtResource( 2 )]
 position = Vector2( 72.7009, 421.901 )
+mass = 15.0
 
 [node name="ObjectiveArea" type="Area2D" parent="."]
 script = ExtResource( 4 )
@@ -28,5 +29,6 @@ script = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
 position = Vector2( 70.625, 40 )
 shape = SubResource( 1 )
+disabled = true
 
 [connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
